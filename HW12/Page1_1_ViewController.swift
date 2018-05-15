@@ -26,6 +26,7 @@ class Page1_1_ViewController: UIViewController {
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        print("In shouldPerformSegue()")
         if (textName.text==nil || textName.text!.isEmpty) {
             return false;
         }
@@ -35,6 +36,7 @@ class Page1_1_ViewController: UIViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("In prepare()")
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let viewController=segue.destination as! Page1_2_ViewController
@@ -49,4 +51,12 @@ class Page1_1_ViewController: UIViewController {
         textPassword.text=""
         buttonWelcome.isEnabled=false
     }
+    
+
+    @IBAction func backdoorButtonPushed(_ sender: Any) {
+        performSegue(withIdentifier: "BackdoorSegue", sender: nil)
+    }
+    
+    
+    
 }

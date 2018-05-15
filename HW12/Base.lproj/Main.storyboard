@@ -64,10 +64,18 @@
                                 <string key="text">1. 練習 Auto layout、constraints
 2. 練習 shouldPerformSegue (要輸入名字以及密碼12345才能過)
 3. 練習 prepare() 及 property 傳資料給下一頁顯示
-4. 練習 unwindToxxx 讓下一頁得以跳回來</string>
+4. 練習 unwindToxxx 讓下一頁得以跳回來
+5. 「開後門」使用 controller level 的 Segue，會跳過shouldPerformSegue</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1IH-7A-aEk">
+                                <rect key="frame" x="0.0" y="206.5" width="375" height="30"/>
+                                <state key="normal" title="開後門"/>
+                                <connections>
+                                    <action selector="backdoorButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IFs-h2-iWJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -75,6 +83,7 @@
                             <constraint firstItem="Vsf-mG-uyK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0nd-LX-GPL"/>
                             <constraint firstItem="9pY-CP-qzb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="3z0-xo-Gtr"/>
                             <constraint firstItem="eTd-zM-LT6" firstAttribute="centerY" secondItem="bvU-He-7TN" secondAttribute="centerY" id="5vo-VE-ZyS"/>
+                            <constraint firstItem="1IH-7A-aEk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="D2j-eJ-Fkn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qd7-ti-zdW" secondAttribute="trailing" constant="20" id="FAu-q2-WGf"/>
                             <constraint firstItem="eTd-zM-LT6" firstAttribute="leading" secondItem="bvU-He-7TN" secondAttribute="trailing" constant="10" id="FgT-zL-JBI"/>
                             <constraint firstItem="bvU-He-7TN" firstAttribute="top" secondItem="9pY-CP-qzb" secondAttribute="bottom" constant="20" id="G4o-6Q-3xa"/>
@@ -86,7 +95,9 @@
                             <constraint firstItem="bvU-He-7TN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="efF-JC-ccO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Qd7-ti-zdW" secondAttribute="bottom" id="mBn-TQ-r4x"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eTd-zM-LT6" secondAttribute="trailing" constant="20" id="ooN-W1-k9g"/>
+                            <constraint firstItem="1IH-7A-aEk" firstAttribute="top" secondItem="Vsf-mG-uyK" secondAttribute="bottom" constant="20" id="uAD-zV-0lq"/>
                             <constraint firstItem="pot-OL-89k" firstAttribute="centerY" secondItem="9pY-CP-qzb" secondAttribute="centerY" id="vcf-rh-5Hl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1IH-7A-aEk" secondAttribute="trailing" id="ypg-9z-rYf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -95,6 +106,7 @@
                         <outlet property="buttonWelcome" destination="Vsf-mG-uyK" id="sHY-eS-d45"/>
                         <outlet property="textName" destination="pot-OL-89k" id="JVt-wD-KPG"/>
                         <outlet property="textPassword" destination="eTd-zM-LT6" id="v0u-Qf-dst"/>
+                        <segue destination="LAz-Xn-SEZ" kind="show" identifier="BackdoorSegue" id="JL0-WH-f6z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -360,6 +372,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="4LY-Sk-pPD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qLb-OQ-Zxq">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -373,4 +386,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="JL0-WH-f6z"/>
+    </inferredMetricsTieBreakers>
 </document>
